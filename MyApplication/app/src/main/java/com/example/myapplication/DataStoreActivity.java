@@ -1,0 +1,78 @@
+package com.example.myapplication;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.Display;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import org.litepal.crud.DataSupport;
+import org.litepal.tablemanager.Connector;
+
+import java.util.List;
+
+public class DataStoreActivity extends AppCompatActivity {
+    private Button save;
+    private Button read;
+    private Button creat;
+    private Button add;
+    private Button search;
+    private TextView data;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_data_store);
+        creat=findViewById(R.id.createdb_bt);
+        save=findViewById(R.id.save_bt);
+        read=findViewById(R.id.read_bt);
+        add=findViewById(R.id.add_bt);
+        search.findViewById(R.id.search_bt);
+        read.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences sp=getSharedPreferences("mydata",MODE_PRIVATE);
+                String name=sp.getString("nem","");
+                int age=sp.getInt("age",0);
+                data.setText("读取的信息为：姓名"+name+"年龄"+age);
+
+            }
+        });
+
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        creat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Connector.getWritableDatabase();
+            }
+        });
+
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Book book =new Book();
+                book.setAuthor("jinx");
+                book.setName("android");
+                book.setPages(500);
+                book.setPrice(55.6);
+                book.save();
+            }
+        });
+         search.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 List<Book> bookList= DataSupport.where("price<?","40").find(Book.class);
+                 for(Book)
+             }
+         });
+    }
+
+}
