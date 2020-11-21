@@ -27,7 +27,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/createdb_bt"
+        android:id="@+id/create_bt"
         android:text="创建数据库"/>
 
     <Button

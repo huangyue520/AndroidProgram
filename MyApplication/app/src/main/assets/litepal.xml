@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <litepal>
 
-    <dbname value="BookStore" ></dbname>>
+    <dbname value="BookStore" />
 
 
-    <version value="1"></version>
+    <version value="2"></version>
 
-
+    <list>
         <mapping class="com.example.myapplication.Book" />
-
+    </list>
 
 
 </litepal>

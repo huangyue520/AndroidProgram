@@ -9,15 +9,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import org.litepal.crud.DataSupport;
-import org.litepal.tablemanager.Connector;
+import org.litepal.LitePal;
 
-import java.util.List;
 
 public class DataStoreActivity extends AppCompatActivity {
     private Button save;
     private Button read;
-    private Button creat;
+    private Button create;
     private Button add;
     private Button search;
     private TextView data;
@@ -25,7 +23,8 @@ public class DataStoreActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_store);
-        creat=findViewById(R.id.createdb_bt);
+        LitePal.initialize(this);
+        create=findViewById(R.id.create_bt);
         data=findViewById(R.id.data_store_tv);
         save=findViewById(R.id.save_bt);
         read=findViewById(R.id.read_bt);
@@ -53,10 +52,10 @@ public class DataStoreActivity extends AppCompatActivity {
             }
         });
 
-        creat.setOnClickListener(new View.OnClickListener() {
+        create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Connector.getDatabase();
+                 LitePal.getDatabase();
             }
         });
 

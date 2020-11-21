@@ -10,10 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AsncTestActivity"></activity>
+        <activity android:name=".AsncTestActivity"/>
         <activity android:name=".ThreadTestActivity"/>
 
-        <activity android:name=".DataStoreActivity" >
+        <activity android:name=".DataStoreActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

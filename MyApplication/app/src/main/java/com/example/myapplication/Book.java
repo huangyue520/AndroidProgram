@@ -1,8 +1,9 @@
 package com.example.myapplication;
 
-import org.litepal.crud.DataSupport;
 
-public class Book extends DataSupport {
+import org.litepal.crud.LitePalSupport;
+
+public class Book extends LitePalSupport {
     private int id;
     private String author;
     private double price;
