@@ -26,10 +26,11 @@ public class DataStoreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_store);
         creat=findViewById(R.id.createdb_bt);
+        data=findViewById(R.id.data_store_tv);
         save=findViewById(R.id.save_bt);
         read=findViewById(R.id.read_bt);
         add=findViewById(R.id.add_bt);
-        search.findViewById(R.id.search_bt);
+//        search.findViewById(R.id.search_bt);
         read.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,14 +45,18 @@ public class DataStoreActivity extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                SharedPreferences sp=getSharedPreferences("mydata",MODE_PRIVATE);
+                SharedPreferences.Editor editor=sp.edit();
+                editor.putString("name","张三");
+                editor.putInt("age",21);
+                editor.apply();
             }
         });
 
         creat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Connector.getWritableDatabase();
+                Connector.getDatabase();
             }
         });
 
@@ -66,13 +71,13 @@ public class DataStoreActivity extends AppCompatActivity {
                 book.save();
             }
         });
-         search.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 List<Book> bookList= DataSupport.where("price<?","40").find(Book.class);
-                 for(Book)
-             }
-         });
+//         search.setOnClickListener(new View.OnClickListener() {
+//             @Override
+//             public void onClick(View v) {
+//                 List<Book> bookList= DataSupport.where("price<?","40").find(Book.class);
+//                 for(Book)
+//             }
+//         });
     }
 
 }

@@ -10,8 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DataStoreActivity">
-            /
+        <activity android:name=".AsncTestActivity"></activity>
+        <activity android:name=".ThreadTestActivity"/>
+
+        <activity android:name=".DataStoreActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,13 +26,10 @@
         <receiver
             android:name=".MyReceiver"
             android:enabled="true"
-            android:exported="true"/>
-
-
+            android:exported="true" />
 
         <activity android:name=".BroadCastActivity" />
         <activity android:name=".FragmentTest" />
-
         <activity android:name=".Turn_Test" />
     </application>
 
